@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option go_package = "github.com/zde37/Message-Broker/protogen";
+
+message Message {
+  string topic = 1;
+  bytes message = 2; 
+}
+
+message PublishRequest {
+  string topic = 1;
+  bytes message = 2;
+}
+
+message PublishResponse {
+  bool success = 1;    
+}
+
+message SubscribeRequest {
+  uint32 subscriber_id = 1;
+  string topic = 2;
+}
+
+message UnSubscribeRequest {
+  uint32 subscriber_id = 1;
+  string topic = 2;
+}
+
+message UnSubscribeResponse {
+  bool success = 1;    
+}
+  

@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+import "api.proto";
+
+option go_package = "github.com/zde37/Message-Broker/protogen";
+
+service PubSubService {
+  rpc Publish (PublishRequest) returns (PublishResponse) {}; // send a message to a topic
+  rpc Subscribe (SubscribeRequest) returns (stream Message) {}; // subscribe to a topic
+  rpc UnSubscribe (UnSubscribeRequest) returns (UnSubscribeResponse) {}; // unsubscribe from a topic
+}
